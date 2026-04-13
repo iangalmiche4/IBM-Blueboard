@@ -1,0 +1,9 @@
+# IBM Blueboard Frontend Configuration
+# Format: KEY=VALUE (one per line)
+# Lines starting with # are comments
+
+# API Configuration
+API_URL=http://localhost:8000/api/v1
+
+# Cache Configuration
+ENABLE_CACHE=true

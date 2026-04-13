@@ -1,0 +1,578 @@
+/* ============================================
+   UI COMPONENTS
+   Progress bars, alerts, tables, tiles, icons
+   ============================================ */
+
+@use "../abstracts" as *;
+
+// ============================================
+// PROGRESS BAR
+// ============================================
+
+.progress-bar {
+  @include flex-column($spacing-sm);
+
+  &__header {
+    @include flex-between;
+  }
+
+  &__label {
+    @include body-text($font-size-base);
+    font-weight: $font-weight-medium;
+  }
+
+  &__value {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: var(--cds-interactive-01);
+  }
+
+  &__track {
+    width: 100%;
+    height: 8px;
+    background-color: var(--cds-ui-03);
+    border-radius: $border-radius-base;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background-color: var(--cds-interactive-01);
+    transition: width $transition-slow;
+  }
+
+  // Size variants
+  &--small {
+    .progress-bar__track {
+      height: 4px;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &--large {
+    .progress-bar__track {
+      height: 12px;
+      border-radius: $border-radius-md;
+    }
+  }
+}
+
+// ============================================
+// PROGRESS SECTION
+// Container for multiple progress bars
+// ============================================
+
+.progress-section {
+  padding: $spacing-3xl;
+
+  &__title {
+    @include heading($font-size-lg, $font-weight-semibold);
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__list {
+    @include flex-column($spacing-lg);
+  }
+}
+
+// Analytics tile (used by ProgressSection)
+.analytics-tile {
+  padding: $spacing-3xl;
+}
+
+// ============================================
+// ALERT SECTION
+// Alert notifications and messages
+// ============================================
+
+.alert-section {
+  padding: $spacing-lg;
+  background-color: var(--cds-notification-background-info);
+  border-left: 4px solid var(--cds-support-info);
+  margin-bottom: $spacing-3xl;
+
+  // Header container
+  .alert-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+  }
+
+  .alert-title {
+    margin: 0;
+  }
+
+  .alert-description {
+    font-size: $font-size-base;
+    margin-bottom: $spacing-lg;
+  }
+
+  // Carbon button overrides
+  button.alert-toggle-button {
+    &:focus,
+    &:focus-visible {
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+  }
+}
+
+// Theme-specific alert styles
+@include theme-light {
+  .alert-section {
+    .alert-card {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+@include theme-dark {
+  .alert-section {
+    background-color: #1e2a3a;
+    border-left-color: #4589ff;
+
+    .alert-card {
+      background-color: rgba(69, 137, 255, 0.1);
+    }
+  }
+}
+
+// ============================================
+// DATA TABLE
+// Carbon data table styling
+// ============================================
+
+.data-table-container {
+  background-color: var(--cds-layer-01);
+  border: 1px solid var(--cds-border-subtle-01);
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+
+  .cds--data-table {
+    background-color: var(--cds-layer-01);
+    margin-top: 0 !important;
+  }
+
+  // Center the entire header section
+  .cds--data-table-header {
+    text-align: center !important;
+    margin-top: 0 !important;
+    padding-top: $spacing-lg !important;
+  }
+
+  // Center the title
+  .cds--data-table-header__title {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  // Center the description
+  .cds--data-table-header__description {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+// Row hover effects
+@include theme-light {
+  .cds--data-table tbody tr:hover td {
+    background-color: #e0e0e0 !important;
+  }
+}
+
+@include theme-dark {
+  .cds--data-table tbody tr:hover td {
+    background-color: #393939 !important;
+  }
+}
+
+// ============================================
+// TILES & KPI TILES
+// ============================================
+
+// KPI Tiles - flexible sizing for grid zones
+.kpi-tile {
+  flex: 1;
+  min-height: 150px;
+
+  .cds--tile {
+    height: 100%;
+    @include flex-column;
+    justify-content: space-between;
+    padding: $spacing-2xl;
+
+    h3 {
+      @include text-secondary($font-size-base);
+      font-weight: $font-weight-normal;
+      margin: 0 0 $spacing-sm 0;
+    }
+
+    .kpi-value {
+      @include heading($font-size-4xl, $font-weight-light);
+      margin: 0;
+
+      @include respond-to("md") {
+        font-size: $font-size-5xl;
+      }
+    }
+
+    .kpi-change {
+      font-size: $font-size-base;
+      margin-top: $spacing-sm;
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+
+      &.positive {
+        color: var(--cds-support-success);
+      }
+
+      &.negative {
+        color: var(--cds-support-error);
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+// KPI tiles container within a zone
+.kpi-tiles-container {
+  @include flex-column($spacing-lg);
+  height: 100%;
+}
+
+// Zone tiles (special KPI display)
+.cds--tile.zone-tile {
+  @include flex-center;
+  @include flex-column;
+  text-align: center;
+  padding: $spacing-2xl;
+  height: 100%;
+  gap: $spacing-md;
+
+  .tile-header {
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: $spacing-xs;
+
+    h3 {
+      font-size: clamp($font-size-base, 3vw, $font-size-lg);
+      font-weight: $font-weight-semibold;
+      color: var(--cds-text-primary);
+      margin: 0;
+      text-align: center;
+      width: 100%;
+      line-height: $line-height-normal;
+      @include word-break;
+    }
+
+    .tile-subtitle {
+      font-size: clamp($font-size-xs, 2.5vw, $font-size-sm);
+      font-weight: $font-weight-normal;
+      color: var(--cds-text-secondary);
+      margin: 0;
+      text-align: center;
+      width: 100%;
+      line-height: $line-height-tight;
+      @include word-break;
+    }
+
+    svg {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      margin-top: $spacing-sm;
+    }
+  }
+
+  .tile-value {
+    font-size: clamp($font-size-2xl, 5vw, $font-size-6xl);
+    font-weight: $font-weight-light;
+    color: var(--cds-text-primary);
+    text-align: center;
+    width: 100%;
+    line-height: $line-height-tight;
+    margin: 0;
+    @include word-break;
+    hyphens: auto;
+  }
+
+  span.tile-change {
+    font-size: clamp($font-size-xs, 2.5vw, $font-size-base) !important;
+    font-weight: $font-weight-medium !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: $spacing-sm !important;
+    width: 100% !important;
+    line-height: $line-height-normal !important;
+    margin: 0 !important;
+    @include word-break;
+
+    &.positive {
+      color: #24a148 !important;
+
+      svg {
+        color: #24a148 !important;
+        fill: #24a148 !important;
+      }
+    }
+
+    &.negative {
+      color: #da1e28 !important;
+
+      svg {
+        color: #da1e28 !important;
+        fill: #da1e28 !important;
+      }
+    }
+
+    &.neutral {
+      color: #525252 !important;
+
+      svg {
+        color: #525252 !important;
+        fill: #525252 !important;
+      }
+    }
+  }
+}
+
+// Force colors in dark mode - same colors as arrows
+@include theme-dark {
+  .cds--tile.zone-tile {
+    span.tile-change {
+      &.positive {
+        color: #24a148 !important;
+
+        svg {
+          color: #24a148 !important;
+          fill: #24a148 !important;
+        }
+      }
+
+      &.negative {
+        color: #da1e28 !important;
+
+        svg {
+          color: #da1e28 !important;
+          fill: #da1e28 !important;
+        }
+      }
+
+      &.neutral {
+        color: #525252 !important;
+
+        svg {
+          color: #525252 !important;
+          fill: #525252 !important;
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// SYSTEM INFO
+// ============================================
+
+.system-info-item {
+  &__label {
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cds-text-secondary);
+    margin-bottom: $spacing-sm;
+  }
+
+  &__value {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+}
+
+.system-info-section {
+  padding: $spacing-3xl;
+
+  &__title {
+    @include heading($font-size-2xl, $font-weight-semibold);
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__column {
+    @include flex-column($spacing-2xl);
+  }
+
+  &__error {
+    color: var(--cds-text-error);
+    padding: $spacing-lg;
+    background-color: var(--cds-notification-background-error);
+    border-radius: $border-radius-base;
+  }
+
+  &__skeleton-item {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// ============================================
+// SATISFACTION PAGE
+// ============================================
+
+.satisfaction-page {
+  &__stats {
+    margin-bottom: $spacing-3xl;
+  }
+
+  // Star rating display
+  &__stars {
+    display: flex;
+    gap: 2px;
+
+    .star-filled {
+      color: #0f62fe !important; // IBM Blue in both themes
+    }
+
+    .star-empty {
+      color: var(--cds-ui-04);
+    }
+  }
+
+  // Score tile
+  &__score-tile {
+    height: 100%;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-3xl;
+
+    h4 {
+      margin-bottom: $spacing-lg;
+      text-align: center;
+    }
+  }
+
+  &__score-value {
+    font-size: $font-size-6xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__score-label {
+    @include text-secondary($font-size-md);
+    margin-bottom: $spacing-lg;
+  }
+
+  // Progress bar for score
+  &__score-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--cds-border-subtle);
+    border-radius: $border-radius-base;
+    overflow: hidden;
+  }
+
+  &__score-bar-fill {
+    height: 100%;
+    transition: width $transition-slow;
+
+    // Score-based colors
+    &--excellent {
+      background-color: var(--cds-interactive-01); // >= 80%
+    }
+
+    &--good {
+      background-color: #4589ff; // >= 60%
+    }
+
+    &--fair {
+      background-color: #78a9ff; // >= 40%
+    }
+
+    &--poor {
+      background-color: #a6c8ff; // < 40%
+    }
+  }
+
+  &__score-percentage {
+    @include text-secondary($font-size-base);
+    margin-top: $spacing-sm;
+  }
+
+  // Rating breakdown tile
+  &__breakdown-tile {
+    height: 100%;
+    @include flex-column;
+    justify-content: center;
+    padding: $spacing-3xl;
+
+    h4 {
+      margin-bottom: $spacing-2xl;
+      text-align: center;
+    }
+  }
+
+  &__breakdown-grid {
+    display: grid;
+    gap: $spacing-lg;
+    width: 100%;
+  }
+
+  &__breakdown-item {
+    @include flex-between;
+
+    strong {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+// ============================================
+// METRICS LIST
+// ============================================
+
+.metrics-list {
+  @include flex-column($spacing-lg);
+
+  &__item {
+    @include flex-between;
+    padding: $spacing-md;
+    background-color: var(--cds-layer-02);
+    border-radius: $border-radius-base;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: var(--cds-layer-03);
+    }
+  }
+
+  &__label {
+    @include body-text($font-size-base);
+    font-weight: $font-weight-medium;
+  }
+
+  &__value {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: var(--cds-interactive-01);
+  }
+}

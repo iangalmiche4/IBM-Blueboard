@@ -1,0 +1,386 @@
+/* ============================================
+   LAYOUT
+   Page structure, header, sidenav, and grids
+   ============================================ */
+
+@use "../abstracts" as *;
+
+// ============================================
+// HEADER
+// Carbon Design System header (always dark)
+// ============================================
+
+.cds--header {
+  background-color: #161616 !important;
+  border-bottom: 1px solid var(--cds-border-subtle-01);
+  position: sticky;
+  top: 0;
+  z-index: $z-index-fixed;
+}
+
+.cds--header__name {
+  color: #ffffff !important;
+  text-decoration: none !important;
+
+  &:hover {
+    color: #f4f4f4 !important;
+    text-decoration: none !important;
+  }
+}
+
+// Hamburger menu button - always visible
+.cds--header__menu-btn,
+.cds--header__menu-toggle,
+button[aria-label="Open menu"],
+button[aria-label*="menu"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  border: none !important;
+  margin-right: $spacing-lg !important;
+  color: #ffffff !important;
+
+  &:hover {
+    background-color: #353535 !important;
+  }
+
+  &:focus {
+    outline: 2px solid #ffffff !important;
+    outline-offset: -2px !important;
+    border-color: var(--cds-focus) !important;
+  }
+
+  svg {
+    fill: #ffffff !important;
+  }
+}
+
+// ============================================
+// SIDE NAVIGATION
+// Carbon side nav (always dark gray)
+// ============================================
+
+.cds--side-nav {
+  background-color: #262626 !important;
+  z-index: $z-index-modal;
+
+  .cds--side-nav__link {
+    color: #e0e0e0 !important;
+    text-decoration: none !important;
+
+    &:hover {
+      background-color: #393939 !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+
+      svg {
+        fill: #ffffff !important;
+      }
+    }
+
+    &--current {
+      background-color: var(--cds-interactive-01) !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+
+      svg {
+        fill: #ffffff !important;
+      }
+    }
+
+    svg {
+      fill: #e0e0e0 !important;
+    }
+  }
+
+  .cds--side-nav__link-text {
+    color: #e0e0e0 !important;
+  }
+
+  .cds--side-nav__icon,
+  .cds--side-nav__item svg {
+    fill: #e0e0e0 !important;
+  }
+}
+
+// ============================================
+// PAGE CONTAINER
+// Main content area
+// ============================================
+
+.page-container {
+  @include flex-column;
+  min-height: 100%;
+  margin: 0;
+  padding: $spacing-2xl !important;
+  width: 100%;
+  background-color: var(--cds-background);
+  box-sizing: border-box;
+
+  // Remove extra padding from direct child grids
+  > .cds--grid,
+  > .cds--css-grid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+// ============================================
+// PAGE HEADER
+// Header section with title and actions
+// ============================================
+
+.page-header {
+  @include flex-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-lg;
+  flex-shrink: 0;
+  gap: $spacing-lg;
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    @include heading($font-size-3xl, $font-weight-light);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  &__subtitle {
+    @include text-secondary($font-size-base);
+    margin: 0;
+  }
+
+  &__actions {
+    flex-shrink: 0;
+    padding-top: $spacing-xs;
+  }
+
+  // Legacy support
+  h1 {
+    @include heading($font-size-3xl, $font-weight-light);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    @include text-secondary($font-size-base);
+    margin: 0;
+  }
+}
+
+// ============================================
+// DASHBOARD GRID
+// Fixed 4-column grid for dashboard
+// ============================================
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: $chart-height-base;
+  gap: $grid-gap;
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  @include respond-to("md") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 280px;
+    gap: $grid-gap-mobile;
+    margin-bottom: $spacing-4xl;
+    padding-bottom: $spacing-3xl;
+  }
+}
+
+// Standard square widget (1 cell)
+.dashboard-widget {
+  grid-column: span 1;
+  grid-row: span 1;
+  @include full-width;
+
+  @include mobile-only {
+    min-height: 250px;
+  }
+}
+
+// Wide widget (2 boxes wide, 1 high)
+.dashboard-widget-wide {
+  grid-column: span 2;
+  grid-row: span 1;
+  @include full-width;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-column: span 2;
+  }
+
+  @include mobile-only {
+    grid-column: span 1;
+    min-height: 350px;
+  }
+}
+
+// ============================================
+// DRAGGABLE GRID
+// React Grid Layout for drag & drop
+// ============================================
+
+.draggable-dashboard-container {
+  width: 100%;
+  position: relative;
+}
+
+.draggable-dashboard-grid {
+  position: relative;
+}
+
+// Grid item
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top, width, height;
+
+  > div,
+  > * {
+    @include full-width;
+    height: 100%;
+  }
+}
+
+// Dragging state
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 100;
+  opacity: 0.9;
+}
+
+// Placeholder
+.react-grid-item.react-grid-placeholder {
+  background: var(--cds-layer-accent-01);
+  opacity: 0.3;
+  transition-duration: 100ms;
+  z-index: 2;
+  border-radius: $border-radius-lg;
+  border: 2px dashed var(--cds-border-strong-01);
+}
+
+// Drag handle
+.drag-handle {
+  cursor: move;
+  cursor: grab;
+  padding: $spacing-sm;
+  @include flex-center;
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  z-index: 10;
+  background: var(--cds-layer-02);
+  border-radius: $border-radius-base;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  width: 32px;
+  height: 32px;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--cds-icon-primary);
+  }
+}
+
+.react-grid-item:hover .drag-handle {
+  opacity: 1;
+}
+
+// Resize handle
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+  background: transparent;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--cds-border-strong-01);
+    border-bottom: 2px solid var(--cds-border-strong-01);
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+}
+
+.react-grid-item:hover .react-resizable-handle::after {
+  opacity: 0.6;
+}
+
+.react-grid-item.resizing .react-resizable-handle::after {
+  opacity: 1;
+}
+
+// Widget wrapper
+.draggable-widget-wrapper {
+  @include full-width;
+  height: 100%;
+  position: relative;
+  @include flex-column;
+
+  .widget-content {
+    @include full-width;
+    height: 100%;
+    flex: 1;
+    @include flex-column;
+
+    > * {
+      @include full-width;
+      height: 100%;
+    }
+  }
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+@media (max-width: 1400px) {
+  .draggable-dashboard-grid {
+    width: 100% !important;
+  }
+}
+
+// ============================================
+// THEME-SPECIFIC OVERRIDES
+// ============================================
+
+@include theme-dark {
+  .drag-handle {
+    background: $theme-dark-tile !important;
+
+    svg {
+      fill: #8d8d8d !important;
+    }
+  }
+
+  .react-resizable-handle::after {
+    border-right-color: #8d8d8d !important;
+    border-bottom-color: #8d8d8d !important;
+  }
+
+  .react-grid-item.react-grid-placeholder {
+    background: var(--cds-layer-accent-01);
+    border-color: var(--cds-border-strong-01);
+  }
+}

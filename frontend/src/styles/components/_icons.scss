@@ -1,0 +1,339 @@
+/* ============================================
+   ICONS
+   Specific rules for different icon types
+   Note: Trend arrows (.tile-change) are styled in _tiles.scss
+   Note: MUI Charts are styled in _mui-charts.css
+   ============================================ */
+
+// Color variables
+$icon-white: #ffffff;
+$icon-black: #161616;
+$icon-blue: #0f62fe;
+
+// KPI Tiles icon colors (configurable per theme)
+$kpi-icon-light-theme: $icon-blue; // IBM Blue
+$kpi-icon-dark-theme: $icon-blue; // IBM Blue
+
+// Mixin for theme-specific icon colors
+@mixin icon-color($color) {
+  fill: $color !important;
+  color: $color !important;
+}
+
+@mixin icon-color-with-stroke($color) {
+  fill: $color !important;
+  color: $color !important;
+  stroke: $color !important;
+}
+
+// Mixin for dark theme rules
+@mixin dark-theme {
+  html[data-carbon-theme="g100"],
+  body[data-carbon-theme="g100"] {
+    @content;
+  }
+}
+
+// Mixin for light theme rules
+@mixin light-theme {
+  html[data-carbon-theme="g10"],
+  body[data-carbon-theme="g10"] {
+    @content;
+  }
+}
+
+/* ============================================
+   ZONE TILES ICONS (in tile-header)
+   Configurable colors via $kpi-icon-dark-theme and $kpi-icon-light-theme
+   ============================================ */
+
+// Dark theme - Red for testing
+html[data-carbon-theme="g100"] .cds--tile.zone-tile .tile-header svg,
+html[data-carbon-theme="g100"] .cds--tile.zone-tile .tile-header svg *,
+body[data-carbon-theme="g100"] .cds--tile.zone-tile .tile-header svg,
+body[data-carbon-theme="g100"] .cds--tile.zone-tile .tile-header svg * {
+  fill: $kpi-icon-dark-theme !important;
+  color: $kpi-icon-dark-theme !important;
+}
+
+// Light theme - IBM Blue
+html[data-carbon-theme="g10"] .cds--tile.zone-tile .tile-header svg,
+html[data-carbon-theme="g10"] .cds--tile.zone-tile .tile-header svg *,
+body[data-carbon-theme="g10"] .cds--tile.zone-tile .tile-header svg,
+body[data-carbon-theme="g10"] .cds--tile.zone-tile .tile-header svg * {
+  fill: $kpi-icon-light-theme !important;
+  color: $kpi-icon-light-theme !important;
+}
+
+/* ============================================
+   PAGINATION ICONS
+   ============================================ */
+
+// Dark theme - White pagination icons
+html[data-carbon-theme="g100"] .cds--pagination svg,
+html[data-carbon-theme="g100"] .cds--pagination svg *,
+html[data-carbon-theme="g100"] .cds--pagination__button svg,
+html[data-carbon-theme="g100"] .cds--pagination__button svg *,
+html[data-carbon-theme="g100"] .cds--pagination__nav svg,
+html[data-carbon-theme="g100"] .cds--pagination__nav svg *,
+body[data-carbon-theme="g100"] .cds--pagination svg,
+body[data-carbon-theme="g100"] .cds--pagination svg *,
+body[data-carbon-theme="g100"] .cds--pagination__button svg,
+body[data-carbon-theme="g100"] .cds--pagination__button svg *,
+body[data-carbon-theme="g100"] .cds--pagination__nav svg,
+body[data-carbon-theme="g100"] .cds--pagination__nav svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+  stroke: $icon-white !important;
+}
+
+// Light theme - Black pagination icons
+html[data-carbon-theme="g10"] .cds--pagination svg,
+html[data-carbon-theme="g10"] .cds--pagination svg *,
+html[data-carbon-theme="g10"] .cds--pagination__button svg,
+html[data-carbon-theme="g10"] .cds--pagination__button svg *,
+html[data-carbon-theme="g10"] .cds--pagination__nav svg,
+html[data-carbon-theme="g10"] .cds--pagination__nav svg *,
+body[data-carbon-theme="g10"] .cds--pagination svg,
+body[data-carbon-theme="g10"] .cds--pagination svg *,
+body[data-carbon-theme="g10"] .cds--pagination__button svg,
+body[data-carbon-theme="g10"] .cds--pagination__button svg *,
+body[data-carbon-theme="g10"] .cds--pagination__nav svg,
+body[data-carbon-theme="g10"] .cds--pagination__nav svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+  stroke: $icon-black !important;
+}
+
+// Disabled pagination buttons - Reduced opacity in both themes
+html[data-carbon-theme="g100"] .cds--pagination__button:disabled svg,
+html[data-carbon-theme="g100"] .cds--pagination__button:disabled svg *,
+body[data-carbon-theme="g100"] .cds--pagination__button:disabled svg,
+body[data-carbon-theme="g100"] .cds--pagination__button:disabled svg *,
+html[data-carbon-theme="g10"] .cds--pagination__button:disabled svg,
+html[data-carbon-theme="g10"] .cds--pagination__button:disabled svg *,
+body[data-carbon-theme="g10"] .cds--pagination__button:disabled svg,
+body[data-carbon-theme="g10"] .cds--pagination__button:disabled svg * {
+  opacity: 0.25 !important;
+}
+
+/* ============================================
+   SELECT DROPDOWN ARROWS
+   ============================================ */
+
+// Dark theme - White select arrows
+html[data-carbon-theme="g100"] .cds--select__arrow,
+html[data-carbon-theme="g100"] .cds--select__arrow svg,
+html[data-carbon-theme="g100"] .cds--select__arrow svg *,
+body[data-carbon-theme="g100"] .cds--select__arrow,
+body[data-carbon-theme="g100"] .cds--select__arrow svg,
+body[data-carbon-theme="g100"] .cds--select__arrow svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Light theme - Black select arrows
+html[data-carbon-theme="g10"] .cds--select__arrow,
+html[data-carbon-theme="g10"] .cds--select__arrow svg,
+html[data-carbon-theme="g10"] .cds--select__arrow svg *,
+body[data-carbon-theme="g10"] .cds--select__arrow,
+body[data-carbon-theme="g10"] .cds--select__arrow svg,
+body[data-carbon-theme="g10"] .cds--select__arrow svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+}
+
+/* ============================================
+   ACCORDION ARROWS
+   ============================================ */
+
+// Dark theme - White accordion arrows
+html[data-carbon-theme="g100"] .cds--accordion__arrow,
+html[data-carbon-theme="g100"] .cds--accordion__arrow svg,
+html[data-carbon-theme="g100"] .cds--accordion__arrow svg *,
+body[data-carbon-theme="g100"] .cds--accordion__arrow,
+body[data-carbon-theme="g100"] .cds--accordion__arrow svg,
+body[data-carbon-theme="g100"] .cds--accordion__arrow svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Light theme - Black accordion arrows
+html[data-carbon-theme="g10"] .cds--accordion__arrow,
+html[data-carbon-theme="g10"] .cds--accordion__arrow svg,
+html[data-carbon-theme="g10"] .cds--accordion__arrow svg *,
+body[data-carbon-theme="g10"] .cds--accordion__arrow,
+body[data-carbon-theme="g10"] .cds--accordion__arrow svg,
+body[data-carbon-theme="g10"] .cds--accordion__arrow svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+}
+
+/* ============================================
+   NOTIFICATION CLOSE BUTTON
+   ============================================ */
+
+// Dark theme - White close button icon
+html[data-carbon-theme="g100"] .cds--inline-notification__close-button svg,
+html[data-carbon-theme="g100"] .cds--inline-notification__close-button svg *,
+body[data-carbon-theme="g100"] .cds--inline-notification__close-button svg,
+body[data-carbon-theme="g100"] .cds--inline-notification__close-button svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Light theme - Black close button icon
+html[data-carbon-theme="g10"] .cds--inline-notification__close-button svg,
+html[data-carbon-theme="g10"] .cds--inline-notification__close-button svg *,
+body[data-carbon-theme="g10"] .cds--inline-notification__close-button svg,
+body[data-carbon-theme="g10"] .cds--inline-notification__close-button svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+}
+
+/* ============================================
+   GHOST BUTTONS (including dashboard reset)
+   ============================================ */
+
+// Dark theme - White icons for ghost buttons
+html[data-carbon-theme="g100"] .cds--btn--ghost svg,
+html[data-carbon-theme="g100"] .cds--btn--ghost svg *,
+body[data-carbon-theme="g100"] .cds--btn--ghost svg,
+body[data-carbon-theme="g100"] .cds--btn--ghost svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Ensure ghost buttons in page header have white icons (higher specificity)
+html[data-carbon-theme="g100"] .page-header .cds--btn--ghost svg,
+html[data-carbon-theme="g100"] .page-header .cds--btn--ghost svg *,
+body[data-carbon-theme="g100"] .page-header .cds--btn--ghost svg,
+body[data-carbon-theme="g100"] .page-header .cds--btn--ghost svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Exception: Alert section buttons - BLACK icons in dark theme
+html[data-carbon-theme="g100"] .alert-section .cds--btn--ghost svg,
+html[data-carbon-theme="g100"] .alert-section .cds--btn--ghost svg *,
+html[data-carbon-theme="g100"] .alert-section .alert-toggle-button svg,
+html[data-carbon-theme="g100"] .alert-section .alert-toggle-button svg *,
+body[data-carbon-theme="g100"] .alert-section .cds--btn--ghost svg,
+body[data-carbon-theme="g100"] .alert-section .cds--btn--ghost svg *,
+body[data-carbon-theme="g100"] .alert-section .alert-toggle-button svg,
+body[data-carbon-theme="g100"] .alert-section .alert-toggle-button svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+}
+
+/* ============================================
+   HEADER GLOBAL ACTIONS
+   ============================================ */
+
+// Header global actions - ALWAYS WHITE icons in both themes
+html[data-carbon-theme="g100"] .cds--header__global .cds--header__action svg,
+html[data-carbon-theme="g100"] .cds--header__global .cds--header__action svg *,
+body[data-carbon-theme="g100"] .cds--header__global .cds--header__action svg,
+body[data-carbon-theme="g100"] .cds--header__global .cds--header__action svg *,
+html[data-carbon-theme="g10"] .cds--header__global .cds--header__action svg,
+html[data-carbon-theme="g10"] .cds--header__global .cds--header__action svg *,
+body[data-carbon-theme="g10"] .cds--header__global .cds--header__action svg,
+body[data-carbon-theme="g10"] .cds--header__global .cds--header__action svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+/* ============================================
+   EXPORT BUTTON ICON
+   ============================================ */
+
+// Export button icon - ALWAYS BLUE in both themes (must override ghost button rules)
+// Dark theme
+html[data-carbon-theme="g100"] .export-button svg,
+html[data-carbon-theme="g100"] .export-button svg *,
+body[data-carbon-theme="g100"] .export-button svg,
+body[data-carbon-theme="g100"] .export-button svg * {
+  fill: $icon-blue !important;
+  color: $icon-blue !important;
+}
+
+// Light theme
+html[data-carbon-theme="g10"] .export-button svg,
+html[data-carbon-theme="g10"] .export-button svg *,
+body[data-carbon-theme="g10"] .export-button svg,
+body[data-carbon-theme="g10"] .export-button svg * {
+  fill: $icon-blue !important;
+  color: $icon-blue !important;
+}
+
+/* ============================================
+   TABLE SORT ICONS & SEARCH ICON
+   ============================================ */
+
+// Dark theme - Table sort icons (up/down arrows)
+html[data-carbon-theme="g100"] .cds--data-table th button svg,
+html[data-carbon-theme="g100"] .cds--data-table th button svg *,
+html[data-carbon-theme="g100"] .cds--table-sort svg,
+html[data-carbon-theme="g100"] .cds--table-sort svg *,
+body[data-carbon-theme="g100"] .cds--data-table th button svg,
+body[data-carbon-theme="g100"] .cds--data-table th button svg *,
+body[data-carbon-theme="g100"] .cds--table-sort svg,
+body[data-carbon-theme="g100"] .cds--table-sort svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Light theme - Table sort icons
+html[data-carbon-theme="g10"] .cds--data-table th button svg,
+html[data-carbon-theme="g10"] .cds--data-table th button svg *,
+html[data-carbon-theme="g10"] .cds--table-sort svg,
+html[data-carbon-theme="g10"] .cds--table-sort svg *,
+body[data-carbon-theme="g10"] .cds--data-table th button svg,
+body[data-carbon-theme="g10"] .cds--data-table th button svg *,
+body[data-carbon-theme="g10"] .cds--table-sort svg,
+body[data-carbon-theme="g10"] .cds--table-sort svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+}
+
+// Dark theme - Table search icon
+html[data-carbon-theme="g100"] .cds--search svg,
+html[data-carbon-theme="g100"] .cds--search svg *,
+html[data-carbon-theme="g100"] .cds--search-input svg,
+html[data-carbon-theme="g100"] .cds--search-input svg *,
+html[data-carbon-theme="g100"] .cds--search-magnifier svg,
+html[data-carbon-theme="g100"] .cds--search-magnifier svg *,
+html[data-carbon-theme="g100"] .cds--search-magnifier-icon svg,
+html[data-carbon-theme="g100"] .cds--search-magnifier-icon svg *,
+body[data-carbon-theme="g100"] .cds--search svg,
+body[data-carbon-theme="g100"] .cds--search svg *,
+body[data-carbon-theme="g100"] .cds--search-input svg,
+body[data-carbon-theme="g100"] .cds--search-input svg *,
+body[data-carbon-theme="g100"] .cds--search-magnifier svg,
+body[data-carbon-theme="g100"] .cds--search-magnifier svg *,
+body[data-carbon-theme="g100"] .cds--search-magnifier-icon svg,
+body[data-carbon-theme="g100"] .cds--search-magnifier-icon svg * {
+  fill: $icon-white !important;
+  color: $icon-white !important;
+}
+
+// Light theme - Table search icon
+html[data-carbon-theme="g10"] .cds--search svg,
+html[data-carbon-theme="g10"] .cds--search svg *,
+html[data-carbon-theme="g10"] .cds--search-input svg,
+html[data-carbon-theme="g10"] .cds--search-input svg *,
+html[data-carbon-theme="g10"] .cds--search-magnifier svg,
+html[data-carbon-theme="g10"] .cds--search-magnifier svg *,
+html[data-carbon-theme="g10"] .cds--search-magnifier-icon svg,
+html[data-carbon-theme="g10"] .cds--search-magnifier-icon svg *,
+body[data-carbon-theme="g10"] .cds--search svg,
+body[data-carbon-theme="g10"] .cds--search svg *,
+body[data-carbon-theme="g10"] .cds--search-input svg,
+body[data-carbon-theme="g10"] .cds--search-input svg *,
+body[data-carbon-theme="g10"] .cds--search-magnifier svg,
+body[data-carbon-theme="g10"] .cds--search-magnifier svg *,
+body[data-carbon-theme="g10"] .cds--search-magnifier-icon svg,
+body[data-carbon-theme="g10"] .cds--search-magnifier-icon svg * {
+  fill: $icon-black !important;
+  color: $icon-black !important;
+}

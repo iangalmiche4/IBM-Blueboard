@@ -1,0 +1,319 @@
+/* ============================================
+   CARBON DESIGN SYSTEM
+   Theme variables and Carbon component overrides
+   ============================================ */
+
+@import "../abstracts/variables";
+
+/* ============================================
+   CARBON THEME VARIABLES
+   Simplified to 2 themes: Light (g10) and Dark (g100)
+   ============================================ */
+
+/* Gray 10 Theme (Light) */
+[data-carbon-theme="g10"] {
+  --cds-background: #f4f4f4;
+  --cds-background-hover: #e5e5e5;
+  --cds-background-active: #c6c6c6;
+  --cds-background-selected: #e0e0e0;
+  --cds-background-selected-hover: #d1d1d1;
+  --cds-background-inverse: #393939;
+  --cds-background-inverse-hover: #474747;
+  --cds-layer-01: #ffffff;
+  --cds-layer-02: #f4f4f4;
+  --cds-layer-03: #ffffff;
+  --cds-layer-hover-01: #e8e8e8;
+  --cds-layer-hover-02: #e8e8e8;
+  --cds-layer-hover-03: #e8e8e8;
+  --cds-layer-active-01: #c6c6c6;
+  --cds-layer-active-02: #c6c6c6;
+  --cds-layer-active-03: #c6c6c6;
+  --cds-field-01: #ffffff;
+  --cds-field-02: #f4f4f4;
+  --cds-field-03: #ffffff;
+  --cds-field-hover-01: #e8e8e8;
+  --cds-field-hover-02: #e8e8e8;
+  --cds-field-hover-03: #e8e8e8;
+  --cds-border-subtle-00: #e0e0e0;
+  --cds-border-subtle-01: #e0e0e0;
+  --cds-border-subtle-02: #e0e0e0;
+  --cds-border-subtle-03: #e0e0e0;
+  --cds-border-strong-01: #8d8d8d;
+  --cds-border-strong-02: #8d8d8d;
+  --cds-border-strong-03: #8d8d8d;
+  --cds-border-inverse: #161616;
+  --cds-text-primary: #161616;
+  --cds-text-secondary: #525252;
+  --cds-text-placeholder: #a8a8a8;
+  --cds-text-on-color: #ffffff;
+  --cds-text-inverse: #ffffff;
+  --cds-link-primary: #0f62fe;
+  --cds-link-primary-hover: #0043ce;
+  --cds-link-secondary: #0043ce;
+  --cds-link-inverse: #78a9ff;
+  --cds-icon-primary: #161616;
+  --cds-icon-secondary: #525252;
+  --cds-icon-on-color: #ffffff;
+  --cds-icon-inverse: #ffffff;
+  --cds-support-error: #da1e28;
+  --cds-support-success: #24a148;
+  --cds-support-warning: #f1c21b;
+  --cds-support-info: #0043ce;
+  --cds-focus: #0f62fe;
+  --cds-interactive: #0f62fe;
+  --cds-highlight: #d0e2ff;
+  --cds-overlay: rgba(22, 22, 22, 0.5);
+  --cds-skeleton-background: #e5e5e5;
+  --cds-skeleton-element: #c6c6c6;
+}
+
+/* Gray 100 Theme (Dark) */
+[data-carbon-theme="g100"] {
+  --cds-background: #161616;
+  --cds-background-hover: #262626;
+  --cds-background-active: #393939;
+  --cds-background-selected: #393939;
+  --cds-background-selected-hover: #474747;
+  --cds-background-inverse: #f4f4f4;
+  --cds-background-inverse-hover: #e5e5e5;
+  --cds-layer-01: #262626;
+  --cds-layer-02: #393939;
+  --cds-layer-03: #525252;
+  --cds-layer-hover-01: #333333;
+  --cds-layer-hover-02: #474747;
+  --cds-layer-hover-03: #636363;
+  --cds-layer-active-01: #525252;
+  --cds-layer-active-02: #6f6f6f;
+  --cds-layer-active-03: #8d8d8d;
+  --cds-field-01: #262626;
+  --cds-field-02: #393939;
+  --cds-field-03: #525252;
+  --cds-field-hover-01: #333333;
+  --cds-field-hover-02: #474747;
+  --cds-field-hover-03: #636363;
+  --cds-border-subtle-00: #393939;
+  --cds-border-subtle-01: #525252;
+  --cds-border-subtle-02: #6f6f6f;
+  --cds-border-subtle-03: #8d8d8d;
+  --cds-border-strong-01: #8d8d8d;
+  --cds-border-strong-02: #a8a8a8;
+  --cds-border-strong-03: #c6c6c6;
+  --cds-border-inverse: #f4f4f4;
+  --cds-text-primary: #f4f4f4;
+  --cds-text-secondary: #c6c6c6;
+  --cds-text-placeholder: #6f6f6f;
+  --cds-text-on-color: #ffffff;
+  --cds-text-inverse: #161616;
+  --cds-link-primary: #78a9ff;
+  --cds-link-primary-hover: #a6c8ff;
+  --cds-link-secondary: #a6c8ff;
+  --cds-link-inverse: #0f62fe;
+  --cds-icon-primary: #f4f4f4;
+  --cds-icon-secondary: #c6c6c6;
+  --cds-icon-on-color: #ffffff;
+  --cds-icon-inverse: #161616;
+  --cds-support-error: #ff8389;
+  --cds-support-success: #42be65;
+  --cds-support-warning: #f1c21b;
+  --cds-support-info: #4589ff;
+  --cds-focus: #ffffff;
+  --cds-interactive: #4589ff;
+  --cds-highlight: #0043ce;
+  --cds-overlay: rgba(0, 0, 0, 0.65);
+  --cds-skeleton-background: #262626;
+  --cds-skeleton-element: #393939;
+}
+
+/* ============================================
+   DATA TABLES
+   ============================================ */
+
+/* Light Mode (g10) */
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  // Table container border
+  .cds--data-table-container {
+    border: 1px solid #e0e0e0 !important;
+  }
+
+  // Table headers background
+  .cds--data-table thead,
+  .cds--data-table thead th {
+    background-color: #e0e0e0 !important;
+  }
+
+  // Pagination - Use Carbon layer variable
+  .cds--pagination {
+    background-color: var(--cds-layer-01) !important;
+
+    // Pagination select - Match pagination background
+    .cds--select-input {
+      background-color: var(--cds-layer-01) !important;
+      color: var(--cds-text-primary) !important;
+      border-color: var(--cds-border-subtle-01) !important;
+    }
+  }
+}
+
+/* Dark Mode (g100) */
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  // Table toolbar and search
+  .cds--data-table-header,
+  .cds--table-toolbar {
+    background-color: $theme-dark-bg !important;
+    color: $theme-dark-text !important;
+  }
+
+  // Search input
+  .cds--search-input,
+  .cds--search,
+  .cds--search .cds--search-input {
+    background-color: $theme-dark-bg !important;
+    color: $theme-dark-text !important;
+    border-color: $theme-dark-border !important;
+
+    &::placeholder {
+      color: #8d8d8d !important;
+    }
+  }
+
+  // Search magnifier icon container
+  .cds--search-magnifier,
+  .cds--search-magnifier-icon {
+    background-color: $theme-dark-bg !important;
+  }
+
+  // Table container
+  .cds--data-table-container {
+    background-color: $theme-dark-tile !important;
+    border: 1px solid $theme-dark-item !important;
+  }
+
+  // Table wrapper
+  .cds--data-table-content {
+    background-color: $theme-dark-tile !important;
+  }
+
+  // Table itself
+  .cds--data-table {
+    border: none !important;
+
+    // Table headers - Ultra specific selectors
+    thead,
+    thead th,
+    thead tr,
+    thead tr th {
+      background-color: $theme-dark-tile !important;
+      color: $theme-dark-text !important;
+      border: none !important;
+    }
+
+    // Force dark gray background on all table header elements
+    thead * {
+      background-color: $theme-dark-tile !important;
+    }
+
+    // Table rows
+    tbody tr {
+      background-color: $theme-dark-bg !important;
+    }
+
+    // Table cells
+    td {
+      color: $theme-dark-text !important;
+      border-color: $theme-dark-border !important;
+    }
+  }
+
+  // Table header title and label
+  .cds--data-table-header__title,
+  .cds--table-header-label {
+    background-color: $theme-dark-tile !important;
+    color: $theme-dark-text !important;
+    border: none !important;
+  }
+
+  // Pagination - Match table rows background (black)
+  .cds--pagination {
+    background-color: $theme-dark-bg !important;
+    color: $theme-dark-text !important;
+    border-color: $theme-dark-border !important;
+
+    // Pagination icons (arrows)
+    svg,
+    .cds--pagination__button svg,
+    .cds--pagination__nav svg {
+      fill: $theme-dark-text !important;
+      color: $theme-dark-text !important;
+    }
+
+    // Pagination buttons
+    .cds--pagination__button {
+      color: $theme-dark-text !important;
+      border-color: $theme-dark-border !important;
+    }
+
+    // Pagination select - Match pagination background
+    .cds--select-input {
+      background-color: $theme-dark-bg !important;
+      color: $theme-dark-text !important;
+      border-color: $theme-dark-border !important;
+    }
+
+    // Pagination items and dividers
+    .cds--pagination__left,
+    .cds--pagination__right {
+      border-color: $theme-dark-border !important;
+    }
+
+    // All pagination elements borders
+    * {
+      border-color: $theme-dark-border !important;
+    }
+  }
+
+  /* ============================================
+     TAGS - Keep original colors in dark mode
+     ============================================ */
+
+  // Force all tags to have dark text in dark mode with maximum specificity
+  .cds--data-table .cds--tag,
+  .cds--data-table .cds--tag *,
+  .cds--tag,
+  .cds--tag * {
+    color: $theme-light-text !important;
+  }
+
+  // Ensure all tag types keep dark text with maximum specificity
+  .cds--data-table .cds--tag--blue,
+  .cds--data-table .cds--tag--blue *,
+  .cds--data-table .cds--tag--green,
+  .cds--data-table .cds--tag--green *,
+  .cds--data-table .cds--tag--cyan,
+  .cds--data-table .cds--tag--cyan *,
+  .cds--data-table .cds--tag--purple,
+  .cds--data-table .cds--tag--purple *,
+  .cds--data-table .cds--tag--gray,
+  .cds--data-table .cds--tag--gray *,
+  .cds--data-table .cds--tag--red,
+  .cds--data-table .cds--tag--red *,
+  .cds--data-table .cds--tag--magenta,
+  .cds--data-table .cds--tag--magenta *,
+  .cds--data-table .cds--tag--teal,
+  .cds--data-table .cds--tag--teal * {
+    color: $theme-light-text !important;
+  }
+
+  // Red tags
+  .cds--tag[type="red"] {
+    background-color: #750e13 !important;
+    color: #ffffff !important;
+    border-color: #750e13 !important;
+  }
+
+  // Tag text always white in dark mode
+  .cds--tag span {
+    color: #ffffff !important;
+  }
+}

@@ -1,0 +1,431 @@
+/* ============================================
+   CUSTOM COMPONENTS
+   Custom cards, tiles, and application-specific components
+   ============================================ */
+
+@import "../abstracts/variables";
+
+/* ============================================
+   TILES
+   Carbon tiles with rounded corners and theme-specific colors
+   ============================================ */
+
+// Global tile styling - Rounded corners
+.cds--tile,
+.zone-tile {
+  border-radius: 8px !important;
+}
+
+// Light theme tiles - White tiles on gray background
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .cds--tile,
+  .zone-tile {
+    background-color: $theme-light-tile !important;
+    color: $theme-light-text !important;
+    border: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  // Analytics tiles without border
+  .analytics-tile {
+    border-left: none !important;
+  }
+}
+
+// Dark theme tiles
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .cds--tile,
+  .zone-tile {
+    background-color: $theme-dark-tile !important;
+    color: $theme-dark-text !important;
+  }
+
+  // Analytics tiles without border
+  .analytics-tile {
+    border-left: none !important;
+  }
+}
+
+/* ============================================
+   PROMOTION ROI CARDS
+   ============================================ */
+
+// Base styles
+.promotions-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.promotion-roi-card {
+  padding: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.promotion-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.promotion-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.promotion-roi {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #24a148;
+}
+
+.promotion-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.promotion-stat {
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+// ROI card specific elements
+.roi-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--cds-border-subtle);
+}
+
+.roi-rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.roi-card-stats {
+  font-size: 0.875rem;
+}
+
+.roi-stat {
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+// Light theme (g10) - White cards
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .promotion-roi-card {
+    background-color: $theme-light-tile !important;
+  }
+
+  .promotions-section-title,
+  .roi-section-title {
+    color: $theme-light-text !important;
+  }
+
+  .promotion-name,
+  .promotion-stat,
+  .promotion-stat strong,
+  .roi-rank,
+  .roi-stat,
+  .roi-stat strong {
+    color: $theme-light-text !important;
+  }
+}
+
+// Dark theme (g100) - Gray cards
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .promotion-roi-card {
+    background-color: $theme-dark-tile !important;
+  }
+
+  .promotions-section-title,
+  .roi-section-title {
+    color: $theme-dark-text !important;
+  }
+
+  .promotion-name,
+  .promotion-stat,
+  .promotion-stat strong,
+  .roi-rank,
+  .roi-stat,
+  .roi-stat strong {
+    color: $theme-dark-text !important;
+  }
+}
+
+/* ============================================
+   RETURN REASON CARDS
+   ============================================ */
+
+// Base styles
+.reasons-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.return-reason-card {
+  padding: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.reason-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.reason-count {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.reason-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reason-stat {
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+// Light theme (g10) - White cards
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .return-reason-card {
+    background-color: $theme-light-tile !important;
+  }
+
+  .reasons-section-title {
+    color: $theme-light-text !important;
+  }
+
+  .reason-count,
+  .reason-stat,
+  .reason-stat strong {
+    color: $theme-light-text !important;
+  }
+}
+
+// Dark theme (g100) - Gray cards
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .return-reason-card {
+    background-color: $theme-dark-tile !important;
+  }
+
+  .reasons-section-title {
+    color: $theme-dark-text !important;
+  }
+
+  .reason-count,
+  .reason-stat,
+  .reason-stat strong {
+    color: $theme-dark-text !important;
+  }
+
+  // Tags in return reason cards and promotion ROI cards - keep dark text
+  .return-reason-card .cds--tag,
+  .return-reason-card .cds--tag *,
+  .promotion-roi-card .cds--tag,
+  .promotion-roi-card .cds--tag * {
+    color: $theme-light-text !important;
+  }
+}
+
+/* ============================================
+   METRIC CARDS (Sales by Channel/Region)
+   ============================================ */
+
+// Light theme (g10) - White items
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .metric-card__item {
+    background-color: $theme-light-tile !important;
+
+    &:hover {
+      background-color: $theme-light-bg !important;
+    }
+  }
+}
+
+// Dark theme (g100) - Gray items
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .metric-card__item {
+    background-color: $theme-dark-tile !important;
+
+    &:hover {
+      background-color: $theme-dark-item !important;
+    }
+  }
+}
+
+/* ============================================
+   METRIC CARD COMPONENT
+   ============================================ */
+
+// Ensure metric card items have visible borders in both themes
+.metric-card-item {
+  background-color: transparent !important;
+}
+
+// Light theme - Light gray items with bottom-right shadow
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .metric-card-item {
+    background-color: $theme-light-item !important;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .metric-card-title,
+  .metric-card-label,
+  .metric-card-empty {
+    color: $theme-light-text !important;
+  }
+}
+
+// Dark mode - Dark items with bottom-right shadow
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .metric-card-item {
+    background-color: $theme-dark-item !important;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .metric-card-title,
+  .metric-card-label,
+  .metric-card-empty {
+    color: $theme-dark-text !important;
+  }
+}
+
+/* ============================================
+   CHART CONTAINER
+   ============================================ */
+
+// Light theme
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .chart-container {
+    background-color: $theme-light-tile !important;
+    border: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+
+    h3 {
+      color: $theme-light-text !important;
+    }
+
+    svg {
+      background-color: $theme-light-tile !important;
+    }
+  }
+}
+
+// Dark mode
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .chart-container {
+    background-color: $theme-dark-tile !important;
+    border-color: $theme-dark-border !important;
+
+    h3 {
+      color: $theme-dark-text !important;
+    }
+
+    svg {
+      background-color: $theme-dark-tile !important;
+    }
+  }
+}
+
+/* ============================================
+   INSIGHT CARDS
+   ============================================ */
+
+// Base styles
+.insight-card {
+  padding: 1.25rem;
+  border-radius: 4px;
+}
+
+.insight-card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.insight-card-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+// Light theme
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .insight-card {
+    background-color: $theme-light-item !important;
+  }
+
+  .insight-card-title {
+    color: $theme-light-text !important;
+  }
+
+  .insight-card-description {
+    color: #525252 !important;
+  }
+}
+
+// Dark theme
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .insight-card {
+    background-color: $theme-dark-item !important;
+  }
+
+  .insight-card-title {
+    color: #ffffff !important;
+  }
+
+  .insight-card-description {
+    color: #c6c6c6 !important;
+  }
+}

@@ -1,0 +1,261 @@
+/* ============================================
+   INTERACTIVE ELEMENTS & MUI CHARTS
+   Base styles, hover states, focus states, and MUI chart overrides
+   ============================================ */
+
+@import "../abstracts/variables";
+
+/* ============================================
+   BASE THEME STYLES
+   Background and text colors for html, body, and content areas
+   ============================================ */
+
+// Light theme (g10)
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  background-color: $theme-light-bg !important;
+  color: $theme-light-text !important;
+
+  // Content areas
+  .cds--content,
+  .app-content,
+  .page-container {
+    background-color: $theme-light-bg !important;
+    color: $theme-light-text !important;
+  }
+}
+
+// Dark theme (g100)
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  background-color: $theme-dark-bg !important;
+  color: $theme-dark-text !important;
+
+  // Content areas
+  .cds--content,
+  .app-content,
+  .page-container {
+    background-color: $theme-dark-bg !important;
+    color: $theme-dark-text !important;
+  }
+
+  // Text elements
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span:not(.cds--header *):not(.cds--side-nav *):not(.cds--tag *),
+  div:not(.cds--header *):not(.cds--side-nav *):not(.cds--tag *),
+  label:not(.cds--tag *) {
+    color: $theme-dark-text !important;
+  }
+}
+
+/* ============================================
+   INTERACTIVE ELEMENTS (Dark Theme Only)
+   ============================================ */
+
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  // Accordion items
+  .cds--accordion__item:hover,
+  .cds--accordion__item--active {
+    background-color: $theme-dark-tile !important;
+  }
+
+  .cds--accordion__heading:hover {
+    background-color: #353535 !important;
+  }
+
+  .cds--accordion__content {
+    background-color: $theme-dark-tile !important;
+    color: $theme-dark-text !important;
+  }
+
+  // Select dropdowns and text inputs
+  .cds--select-input,
+  .cds--text-input {
+    background-color: $theme-dark-tile !important;
+    color: $theme-dark-text !important;
+    border-color: #525252 !important;
+
+    &:hover {
+      background-color: #353535 !important;
+    }
+
+    &:focus {
+      outline: 2px solid #0f62fe !important;
+      outline-offset: -2px !important;
+    }
+  }
+
+  // Labels
+  .cds--label,
+  .cds--toggle__label-text {
+    color: $theme-dark-text !important;
+  }
+
+  // Buttons hover states
+  .cds--btn--primary:hover {
+    background-color: #0353e9 !important;
+  }
+
+  .cds--btn--secondary:hover {
+    background-color: #6f6f6f !important;
+    color: #ffffff !important;
+  }
+
+  // Toggle switches
+  .cds--toggle-input:checked + .cds--toggle-input__label .cds--toggle__switch {
+    background-color: #0f62fe !important;
+  }
+
+  // Pagination buttons
+  .cds--pagination__button,
+  .cds--pagination__button--no-index {
+    &:hover {
+      background-color: #353535 !important;
+    }
+
+    &:disabled,
+    &[disabled] {
+      opacity: 0.25 !important;
+      cursor: not-allowed !important;
+
+      svg,
+      svg * {
+        fill: #525252 !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  // Notifications
+  .cds--inline-notification {
+    background-color: $theme-dark-tile !important;
+    border-left-color: #24a148 !important;
+  }
+
+  .cds--inline-notification__title,
+  .cds--inline-notification__subtitle {
+    color: $theme-dark-text !important;
+  }
+}
+
+/* ============================================
+   MUI CHARTS - AXES
+   ============================================ */
+
+// Dark theme - White axes
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .MuiChartsAxis-line,
+  .MuiChartsAxis-tick {
+    stroke: $theme-dark-text !important;
+  }
+
+  .MuiChartsAxis-tickLabel {
+    fill: $theme-dark-text !important;
+  }
+}
+
+// Light theme - Black axes
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .MuiChartsAxis-line,
+  .MuiChartsAxis-tick {
+    stroke: $theme-light-text !important;
+  }
+
+  .MuiChartsAxis-tickLabel {
+    fill: $theme-light-text !important;
+  }
+}
+
+/* ============================================
+   MUI CHARTS - TOOLTIPS
+   ============================================ */
+
+// Dark theme tooltips
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  .MuiChartsTooltip-root,
+  .MuiChartsTooltip-paper,
+  .MuiChartsTooltip-table {
+    background-color: $theme-dark-item !important;
+    color: $theme-dark-text !important;
+  }
+
+  .MuiChartsTooltip-labelCell,
+  .MuiChartsTooltip-valueCell,
+  .MuiChartsTooltip-mark,
+  .MuiChartsTooltip-row {
+    color: $theme-dark-text !important;
+  }
+
+  // Popper tooltip
+  .MuiPopper-root .MuiPaper-root {
+    background-color: $theme-dark-item !important;
+    color: $theme-dark-text !important;
+    border-radius: 8px !important;
+  }
+}
+
+// Light theme tooltips
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  .MuiChartsTooltip-root,
+  .MuiChartsTooltip-paper,
+  .MuiChartsTooltip-table {
+    background-color: $theme-light-bg !important;
+    color: $theme-light-text !important;
+    border-radius: 8px !important;
+  }
+
+  .MuiChartsTooltip-labelCell,
+  .MuiChartsTooltip-valueCell,
+  .MuiChartsTooltip-mark,
+  .MuiChartsTooltip-row {
+    color: $theme-light-text !important;
+  }
+
+  // Popper tooltip
+  .MuiPopper-root .MuiPaper-root {
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* ============================================
+   MUI CHARTS - LEGEND
+   ============================================ */
+
+// Hide MUI Charts Legend globally
+.MuiChartsLegend-root,
+.MuiChartsLegend-series,
+g[class*="MuiChartsLegend"],
+svg g[class*="legend"] {
+  display: none !important;
+}
+
+/* ============================================
+   ICON THEME OVERRIDES
+   Override Carbon icon variables for themes
+   ============================================ */
+
+// Dark theme icons
+html[data-carbon-theme="g100"],
+body[data-carbon-theme="g100"] {
+  --cds-icon-primary: #{$icon-dark};
+  --cds-icon-secondary: #{$icon-secondary-dark};
+}
+
+// Light theme icons
+html[data-carbon-theme="g10"],
+body[data-carbon-theme="g10"] {
+  --cds-icon-primary: #{$icon-light};
+  --cds-icon-secondary: #{$icon-secondary-light};
+}

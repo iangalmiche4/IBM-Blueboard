@@ -1,0 +1,27 @@
+/* ============================================
+   MAIN STYLESHEET
+   Refactored and optimized structure
+   ============================================ */
+
+// 1. Abstracts (variables, mixins, functions)
+@use "./abstracts" as *;
+
+// 2. Base styles (reset, typography)
+@use "./base";
+
+// 3. Layout (header, sidenav, page, grids)
+@use "./layout/layout";
+
+// 4. Components (consolidated)
+@use "./components/cards";
+@use "./components/charts";
+@use "./components/ui";
+@use "./utilities/utilities";
+
+// 5. Legacy imports (using @import for backward compatibility)
+@import "./components/icons";
+
+// 6. Theme system (Carbon + custom components + interactive)
+@import "./themes/carbon";
+@import "./themes/components";
+@import "./themes/interactive";

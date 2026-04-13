@@ -1,0 +1,165 @@
+/* ============================================
+   VARIABLES
+   All SCSS variables for the application
+   ============================================ */
+
+// ============================================
+// THEME COLORS
+// ============================================
+
+// Light theme (g10) colors
+$theme-light-bg: #f4f4f4;
+$theme-light-tile: #ffffff;
+$theme-light-text: #161616;
+$theme-light-border: #d0d0d0;
+$theme-light-item: #f9f9f9;
+
+// Dark theme (g100) colors
+$theme-dark-bg: #161616;
+$theme-dark-text: #f4f4f4;
+$theme-dark-tile: #262626;
+$theme-dark-border: #393939;
+$theme-dark-item: #393939;
+
+// Icon colors
+$icon-light: #161616;
+$icon-dark: #ffffff;
+$icon-secondary-light: #525252;
+$icon-secondary-dark: #c6c6c6;
+
+// ============================================
+// SPACING
+// ============================================
+
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 0.75rem; // 12px
+$spacing-lg: 1rem; // 16px
+$spacing-xl: 1.25rem; // 20px
+$spacing-2xl: 1.5rem; // 24px
+$spacing-3xl: 2rem; // 32px
+$spacing-4xl: 3rem; // 48px
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+// Font sizes
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.8125rem; // 13px
+$font-size-base: 0.875rem; // 14px
+$font-size-md: 1rem; // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem; // 20px
+$font-size-2xl: 1.5rem; // 24px
+$font-size-3xl: 1.75rem; // 28px
+$font-size-4xl: 2rem; // 32px
+$font-size-5xl: 2.25rem; // 36px
+$font-size-6xl: 2.5rem; // 40px
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-tight: 1.1;
+$line-height-normal: 1.3;
+$line-height-relaxed: 1.5;
+$line-height-loose: 1.75;
+
+// ============================================
+// LAYOUT
+// ============================================
+
+// Border radius
+$border-radius-sm: 2px;
+$border-radius-base: 4px;
+$border-radius-md: 6px;
+$border-radius-lg: 8px;
+
+// Transitions
+$transition-fast: 0.1s ease;
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+$shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+// Dark theme shadows
+$shadow-dark-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+$shadow-dark-base: 0 1px 3px rgba(0, 0, 0, 0.3);
+$shadow-dark-md: 0 2px 4px rgba(255, 255, 255, 0.05);
+$shadow-dark-lg: 0 4px 8px rgba(255, 255, 255, 0.1);
+$shadow-dark-xl: 0 8px 16px rgba(255, 255, 255, 0.15);
+
+// Z-index layers
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$breakpoint-xs: 320px;
+$breakpoint-sm: 672px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1056px;
+$breakpoint-xl: 1312px;
+$breakpoint-2xl: 1584px;
+
+// ============================================
+// COMPONENT SPECIFIC
+// ============================================
+
+// Cards
+$card-padding-sm: $spacing-lg;
+$card-padding-base: $spacing-xl;
+$card-padding-lg: $spacing-2xl;
+$card-border-radius: $border-radius-base;
+
+// Charts
+$chart-height-sm: 250px;
+$chart-height-base: 320px;
+$chart-height-lg: 400px;
+
+// Grid
+$grid-gap: $spacing-2xl;
+$grid-gap-mobile: $spacing-lg;
+
+// ============================================
+// CSS CUSTOM PROPERTIES
+// For backward compatibility with existing CSS
+// ============================================
+
+:root {
+  /* Theme colors */
+  --theme-light-bg: #{$theme-light-bg};
+  --theme-light-tile: #{$theme-light-tile};
+  --theme-light-text: #{$theme-light-text};
+  --theme-light-border: #{$theme-light-border};
+  --theme-light-item: #{$theme-light-item};
+
+  --theme-dark-bg: #{$theme-dark-bg};
+  --theme-dark-text: #{$theme-dark-text};
+  --theme-dark-tile: #{$theme-dark-tile};
+  --theme-dark-border: #{$theme-dark-border};
+  --theme-dark-item: #{$theme-dark-item};
+
+  /* Icons */
+  --icon-light: #{$icon-light};
+  --icon-dark: #{$icon-dark};
+  --icon-secondary-light: #{$icon-secondary-light};
+  --icon-secondary-dark: #{$icon-secondary-dark};
+}

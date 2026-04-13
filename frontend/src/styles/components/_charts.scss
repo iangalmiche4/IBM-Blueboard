@@ -1,0 +1,236 @@
+/* ============================================
+   CHARTS
+   All chart components (Carbon, MUI, Recharts)
+   ============================================ */
+
+@use "../abstracts" as *;
+
+// ============================================
+// BASE CHART STYLES
+// ============================================
+
+// Base chart container mixin
+@mixin chart-container-base {
+  @include flex-column;
+  height: 100%;
+  width: 100%;
+  padding: $spacing-2xl;
+}
+
+// Chart header/title mixin
+@mixin chart-title {
+  @include heading($font-size-md, $font-weight-semibold);
+  margin: 0 0 $spacing-lg 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+// Chart empty state mixin
+@mixin chart-empty-state {
+  @include text-secondary($font-size-base);
+  margin: 0;
+  text-align: center;
+}
+
+// ============================================
+// CARBON CHARTS
+// Standard Carbon Design System charts
+// ============================================
+
+.chart-container {
+  background-color: var(--cds-layer-01);
+  border: 1px solid var(--cds-border-subtle-01);
+  padding: $spacing-lg $spacing-2xl $spacing-sm $spacing-2xl;
+  border-radius: $border-radius-lg;
+  height: 100%;
+  max-height: $chart-height-base;
+  @include flex-column;
+  overflow: hidden;
+
+  h3 {
+    @include chart-title;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  // Carbon Charts wrapper
+  .cds--cc--chart-wrapper {
+    flex: 1;
+    min-height: 0;
+    max-height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    svg {
+      width: 100% !important;
+      height: 100% !important;
+      background-color: var(--cds-layer-01) !important;
+    }
+
+    // Hide toolbar/menu
+    .cds--cc--toolbar {
+      display: none !important;
+    }
+  }
+}
+
+// ============================================
+// MUI CHARTS
+// Material-UI chart components
+// ============================================
+
+.mui-chart-tile {
+  @include chart-container-base;
+
+  // Chart title (when data is present)
+  .mui-chart-title {
+    @include chart-title;
+  }
+
+  // Chart body container
+  .mui-chart-body {
+    flex: 1;
+    min-height: 0;
+    @include flex-center;
+    width: 100%;
+  }
+
+  // Empty state container - centers title and message vertically
+  &--empty {
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-md;
+
+    .mui-chart-empty {
+      @include chart-empty-state;
+    }
+  }
+}
+
+// ============================================
+// RECHARTS WIDGET
+// Recharts library components
+// ============================================
+
+.recharts-widget {
+  @include chart-container-base;
+
+  &__header {
+    margin-bottom: $spacing-lg;
+    flex-shrink: 0;
+
+    h3 {
+      @include chart-title;
+      text-align: left;
+    }
+  }
+
+  &__chart-container {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+  }
+
+  &__empty {
+    @include chart-empty-state;
+  }
+
+  &__tooltip {
+    padding: $spacing-md;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-md;
+
+    &-date {
+      margin: 0 0 $spacing-xs 0;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+    }
+
+    &-value {
+      margin: 0;
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+// ============================================
+// ADVANCED ANALYTICS
+// Specific styles for advanced analytics page
+// ============================================
+
+.advanced-analytics {
+  &__insights-tile {
+    padding: $spacing-3xl;
+
+    h4 {
+      @include heading($font-size-lg, $font-weight-semibold);
+      margin-bottom: $spacing-2xl;
+    }
+  }
+
+  &__insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-2xl;
+  }
+}
+
+// ============================================
+// THEME-SPECIFIC OVERRIDES
+// ============================================
+
+// Light theme
+@include theme-light {
+  // MUI Charts
+  .mui-chart-tile {
+    .mui-chart-title {
+      color: $theme-light-text;
+    }
+  }
+
+  // Recharts tooltip
+  .recharts-widget {
+    &__tooltip {
+      background-color: $theme-light-tile;
+      border: 1px solid $theme-light-border;
+    }
+
+    &__tooltip-date,
+    &__empty {
+      color: $theme-light-text;
+    }
+
+    &__tooltip-value {
+      color: var(--cds-interactive-01);
+    }
+  }
+}
+
+// Dark theme
+@include theme-dark {
+  // MUI Charts
+  .mui-chart-tile {
+    .mui-chart-title {
+      color: $theme-dark-text;
+    }
+  }
+
+  // Recharts tooltip
+  .recharts-widget {
+    &__tooltip {
+      background-color: $theme-dark-item;
+      border: 1px solid $theme-dark-border;
+    }
+
+    &__tooltip-date,
+    &__empty {
+      color: $theme-dark-text;
+    }
+
+    &__tooltip-value {
+      color: var(--cds-interactive-01);
+    }
+  }
+}

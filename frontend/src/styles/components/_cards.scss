@@ -1,0 +1,382 @@
+/* ============================================
+   CARDS
+   All card components with shared base styles
+   ============================================ */
+
+@use "../abstracts" as *;
+
+// ============================================
+// BASE CARD STYLES (shared by all cards)
+// ============================================
+
+// Base card mixin used by all card types
+@mixin base-card($padding: $spacing-xl) {
+  @include card-base($padding);
+  height: 100%;
+}
+
+// ============================================
+// STAT CARD
+// Small KPI display card
+// ============================================
+
+.stat-card {
+  @include base-card($spacing-xl);
+  height: 140px;
+  @include flex-column;
+  justify-content: space-between;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__icon {
+    color: var(--cds-interactive-01);
+  }
+
+  &__title {
+    @include text-secondary($font-size-base);
+    font-weight: $font-weight-medium;
+  }
+
+  &__value {
+    @include heading($font-size-4xl, $font-weight-bold);
+  }
+
+  &__subtitle {
+    @include text-secondary($font-size-xs);
+  }
+}
+
+// ============================================
+// METRIC CARD
+// List of metrics with labels and values
+// ============================================
+
+.metric-card {
+  @include base-card($spacing-2xl);
+  @include full-width;
+
+  &__title {
+    @include heading($font-size-lg, $font-weight-semibold);
+    margin-bottom: $spacing-lg;
+  }
+
+  &__list {
+    @include flex-column($spacing-lg);
+  }
+
+  &__item {
+    @include flex-between;
+    padding: $spacing-md;
+    border-radius: $border-radius-base;
+    background-color: var(--cds-layer-02);
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: var(--cds-layer-03);
+    }
+  }
+
+  &__label {
+    font-weight: $font-weight-medium;
+    color: var(--cds-text-primary);
+  }
+
+  &__value {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-lg;
+    color: var(--cds-interactive-01);
+  }
+
+  &__empty {
+    @include text-secondary;
+    text-align: center;
+    padding: $spacing-3xl;
+  }
+
+  // Legacy class names support (to be removed after migration)
+  .metric-card-title {
+    color: var(--cds-text-primary);
+  }
+
+  .metric-card-item {
+    background-color: var(--cds-layer-02);
+  }
+
+  .metric-card-label {
+    color: var(--cds-text-primary);
+  }
+
+  .metric-card-value {
+    font-size: $font-size-lg;
+  }
+
+  .metric-card-empty {
+    @include text-secondary;
+    text-align: center;
+    padding: $spacing-3xl;
+  }
+}
+
+// Force metric cards to take full width
+.cds--tile.metric-card {
+  @include full-width;
+}
+
+// ============================================
+// INSIGHT CARD
+// Card with left accent border for insights
+// ============================================
+
+.insight-card {
+  @include card-accent-left(var(--cds-interactive-01), 4px);
+  padding: $spacing-lg;
+
+  &__title {
+    @include heading($font-size-md, $font-weight-semibold);
+    margin-bottom: $spacing-sm;
+    color: var(--cds-interactive-01);
+  }
+
+  &__description {
+    @include text-secondary($font-size-base);
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+
+  // Legacy class names support (to be removed after migration)
+  .insight-card-title {
+    @include heading($font-size-md, $font-weight-semibold);
+    margin-bottom: $spacing-sm;
+    color: var(--cds-interactive-01);
+  }
+
+  .insight-card-description {
+    @include text-secondary($font-size-base);
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+}
+
+// ============================================
+// INFO TILE
+// Simple tile with icon and content
+// ============================================
+
+.info-tile {
+  &__icon {
+    color: var(--cds-interactive-01);
+  }
+
+  &__content {
+    margin-top: $spacing-lg;
+  }
+}
+
+// ============================================
+// ALERT CARD
+// Card for displaying alerts and notifications
+// ============================================
+
+.alert-card {
+  padding: $spacing-md;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: $border-radius-base;
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-xs 0;
+    font-size: $font-size-md;
+  }
+
+  &__content {
+    font-size: $font-size-sm;
+  }
+
+  &__field {
+    margin: 0 0 $spacing-xs 0;
+    font-size: $font-size-sm;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ============================================
+// PROMOTION ROI CARD
+// Card for displaying promotion ROI metrics
+// ============================================
+
+.promotion-roi-card {
+  @include base-card($spacing-lg);
+  border: none;
+
+  .roi-card-header {
+    @include flex-between;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid var(--cds-border-subtle);
+
+    .roi-rank {
+      @include heading($font-size-2xl, $font-weight-bold);
+      line-height: $line-height-tight;
+    }
+  }
+
+  .roi-card-stats {
+    font-size: $font-size-base;
+    color: var(--cds-text-secondary);
+
+    .roi-stat {
+      margin-bottom: $spacing-sm;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: var(--cds-text-primary);
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+}
+
+// Container for promotion ROI section
+.top-promotions-roi {
+  margin-bottom: $spacing-3xl;
+
+  .roi-section-title {
+    @include heading($font-size-md, $font-weight-semibold);
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  // Match Grid behavior from metrics-grid
+  .cds--grid {
+    margin-left: -$spacing-lg;
+    margin-right: -$spacing-lg;
+  }
+
+  .cds--col {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+  }
+}
+
+// ============================================
+// RETURN REASON CARD
+// Card for displaying return reason metrics
+// ============================================
+
+.return-reason-card {
+  @include base-card($spacing-lg);
+  border: none;
+
+  .reason-card-header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid var(--cds-border-subtle);
+
+    .reason-count {
+      @include heading($font-size-2xl, $font-weight-bold);
+      line-height: $line-height-tight;
+    }
+  }
+
+  .reason-card-stats {
+    font-size: $font-size-base;
+    color: var(--cds-text-secondary);
+
+    .reason-stat {
+      margin-bottom: $spacing-sm;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: var(--cds-text-primary);
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+}
+
+// Container for return reasons section
+.top-return-reasons {
+  margin-bottom: $spacing-3xl;
+
+  .reasons-section-title {
+    @include heading($font-size-md, $font-weight-semibold);
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  // Match Grid behavior from metrics-grid
+  .cds--grid {
+    margin-left: -$spacing-lg;
+    margin-right: -$spacing-lg;
+  }
+
+  .cds--col {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+  }
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+@include mobile-only {
+  // Promotion ROI cards
+  .top-promotions-roi {
+    padding: $spacing-md;
+
+    .roi-section-title {
+      font-size: $font-size-base;
+    }
+  }
+
+  .promotion-roi-card {
+    padding: $spacing-md;
+
+    .roi-card-header {
+      .roi-rank {
+        font-size: $font-size-xl;
+      }
+    }
+
+    .roi-card-stats {
+      font-size: $font-size-sm;
+    }
+  }
+
+  // Return reason cards
+  .top-return-reasons {
+    padding: $spacing-md;
+
+    .reasons-section-title {
+      font-size: $font-size-base;
+    }
+  }
+
+  .return-reason-card {
+    padding: $spacing-md;
+
+    .reason-card-header {
+      .reason-count {
+        font-size: $font-size-xl;
+      }
+    }
+
+    .reason-card-stats {
+      font-size: $font-size-sm;
+    }
+  }
+}

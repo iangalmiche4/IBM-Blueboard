@@ -1,0 +1,8 @@
+/* ============================================
+   ABSTRACTS INDEX
+   Central import file for all abstracts
+   ============================================ */
+
+// Import order matters: variables first, then mixins that use them
+@forward "./variables";
+@forward "./mixins";

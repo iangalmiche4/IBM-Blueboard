@@ -1,0 +1,266 @@
+/* ============================================
+   UTILITIES
+   Helper classes, animations, and responsive utilities
+   ============================================ */
+
+@use "../abstracts" as *;
+
+// ============================================
+// SPACING UTILITIES
+// ============================================
+
+// Margin utilities
+.mb-1 {
+  margin-bottom: $spacing-lg;
+}
+.mb-2 {
+  margin-bottom: $spacing-3xl;
+}
+.mb-3 {
+  margin-bottom: $spacing-4xl;
+}
+
+.mt-1 {
+  margin-top: $spacing-lg;
+}
+.mt-2 {
+  margin-top: $spacing-3xl;
+}
+.mt-3 {
+  margin-top: $spacing-4xl;
+}
+
+// Gap utilities for flex/grid
+.gap-1 {
+  gap: $spacing-lg;
+}
+.gap-2 {
+  gap: $spacing-3xl;
+}
+
+.row-gap-1 {
+  row-gap: $spacing-lg;
+}
+.row-gap-2 {
+  row-gap: $spacing-3xl;
+}
+
+// Padding utilities
+.p-1 {
+  padding: $spacing-lg;
+}
+.p-2 {
+  padding: $spacing-3xl;
+}
+.p-3 {
+  padding: $spacing-4xl;
+}
+
+// ============================================
+// FLEXBOX UTILITIES
+// ============================================
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-gap-1 {
+  display: flex;
+  gap: $spacing-lg;
+}
+
+.flex-gap-2 {
+  display: flex;
+  gap: $spacing-3xl;
+}
+
+// ============================================
+// GRID UTILITIES
+// ============================================
+
+.grid {
+  display: grid;
+}
+
+.grid-gap-1 {
+  display: grid;
+  gap: $spacing-lg;
+}
+
+.grid-gap-2 {
+  display: grid;
+  gap: $spacing-3xl;
+}
+
+// Metrics grid (common pattern in pages)
+.metrics-grid {
+  margin-bottom: $spacing-3xl;
+  row-gap: $spacing-lg;
+}
+
+// ============================================
+// HOVER EFFECTS & ANIMATIONS
+// ============================================
+
+// Light theme hover effects
+@include theme-light {
+  // KPI Tiles and all Carbon Tiles
+  .kpi-tile .cds--tile,
+  .cds--tile.zone-tile,
+  .cds--tile {
+    @include hover-effect-light;
+  }
+
+  // Metric Cards
+  .metric-card {
+    @include hover-effect-light;
+  }
+
+  // Metric Card Items (individual items within metric cards)
+  .metric-card-item {
+    @include hover-effect-subtle-light;
+  }
+
+  // Insight Cards
+  .insight-card {
+    @include hover-effect-light;
+  }
+
+  // Chart Containers
+  .chart-container {
+    @include hover-effect-light;
+  }
+
+  // Promotion ROI Cards
+  .promotion-roi-card {
+    @include hover-effect-light;
+  }
+
+  // Return Reason Cards
+  .return-reason-card {
+    @include hover-effect-light;
+  }
+
+  // Alert Sections
+  .alert-section {
+    @include hover-effect-light;
+  }
+
+  // Alert Cards
+  .alert-card {
+    @include hover-effect-light;
+  }
+}
+
+// Dark theme hover effects
+@include theme-dark {
+  // KPI Tiles and all Carbon Tiles
+  .kpi-tile .cds--tile,
+  .cds--tile.zone-tile,
+  .cds--tile {
+    @include hover-effect-dark;
+  }
+
+  // Metric Cards
+  .metric-card {
+    @include hover-effect-dark;
+  }
+
+  // Metric Card Items
+  .metric-card-item {
+    @include hover-effect-subtle-dark;
+  }
+
+  // Insight Cards
+  .insight-card {
+    @include hover-effect-dark;
+  }
+
+  // Chart Containers
+  .chart-container {
+    @include hover-effect-dark;
+  }
+
+  // Promotion ROI Cards
+  .promotion-roi-card {
+    @include hover-effect-dark;
+  }
+
+  // Return Reason Cards
+  .return-reason-card {
+    @include hover-effect-dark;
+  }
+
+  // Alert Sections
+  .alert-section {
+    @include hover-effect-dark;
+  }
+
+  // Alert Cards
+  .alert-card {
+    @include hover-effect-dark;
+  }
+}
+
+// ============================================
+// STATE UTILITIES
+// ============================================
+
+// Loading state
+.loading-container {
+  @include flex-center;
+  min-height: 400px;
+}
+
+// Error state
+.error-container {
+  background-color: #fff1f1;
+  border: 1px solid #da1e28;
+  padding: $spacing-2xl;
+  border-radius: 0;
+
+  h3 {
+    color: #da1e28;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: #525252;
+  }
+}
+
+// ============================================
+// RESPONSIVE UTILITIES
+// ============================================
+
+@include mobile-only {
+  .app-content {
+    padding: $spacing-lg;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: $font-size-4xl;
+  }
+}

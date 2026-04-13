@@ -1,0 +1,100 @@
+/* ============================================
+   RESET & BASE STYLES
+   Global resets and base element styles
+   ============================================ */
+
+@use "../abstracts" as *;
+
+// ============================================
+// GLOBAL RESETS
+// ============================================
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--cds-background) !important;
+  color: var(--cds-text-primary) !important;
+}
+
+// Box sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// ============================================
+// CARBON DESIGN SYSTEM OVERRIDES
+// ============================================
+
+// Content area
+.cds--content {
+  background-color: var(--cds-background) !important;
+  color: var(--cds-text-primary) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: calc(100vh - 48px) !important;
+}
+
+.app-content {
+  background-color: var(--cds-background) !important;
+  color: var(--cds-text-primary) !important;
+  min-height: calc(100vh - 48px);
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+// Page container
+.page-container {
+  background-color: var(--cds-background) !important;
+  color: var(--cds-text-primary) !important;
+  min-height: 100%;
+}
+
+// Tiles
+.cds--tile {
+  @include full-width;
+  background-color: var(--cds-layer-01) !important;
+  color: var(--cds-text-primary) !important;
+}
+
+// ============================================
+// CARBON GRID SYSTEM OVERRIDES
+// ============================================
+
+// Force full width grids
+.cds--grid,
+.cds--css-grid {
+  @include full-width;
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  gap: $spacing-lg !important;
+}
+
+// Narrow grids
+.cds--css-grid--narrow {
+  @include full-width;
+  max-width: none !important;
+  gap: $spacing-lg !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+// Columns
+.cds--col,
+.cds--css-grid-column {
+  @include full-width;
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
