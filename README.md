@@ -119,7 +119,7 @@ make organize-imports-backend   # Organize backend imports
 
 **Resources:**
 
-- `GET /api/v1/products` - Product catalog
+- `GET /api/v1/products` - Products catalog
 - `GET /api/v1/sales` - Sales transactions
 - `GET /api/v1/customers` - Customer data
 - `GET /api/v1/satisfaction` - Customer reviews
